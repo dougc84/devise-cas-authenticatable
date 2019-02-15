@@ -31,7 +31,8 @@ module Devise
             return nil unless resource
             
             if resource.respond_to? :cas_extra_attributes=
-              resource.cas_extra_attributes = ticket.respond_to?(:extra_attributes) ? ticket.extra_attributes : ticket.response.extra_attributes
+              # resource.cas_extra_attributes = ticket.respond_to?(:extra_attributes) ? ticket.extra_attributes : ticket.response.extra_attributes
+              resource.cas_extra_attributes = ticket.response if ticket.respond_to?(:response)
             end
             resource.save
             resource
