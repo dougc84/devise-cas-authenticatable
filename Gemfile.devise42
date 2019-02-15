@@ -4,10 +4,13 @@ source "http://rubygems.org"
 gemspec
 
 gem 'rails', '~> 5.0.0'
-gem 'devise', '~> 4.2.0'
+gem 'devise', '~> 4.2'
 gem 'activerecord-session_store'
 gem 'sinatra', '~> 2.0.0.beta2'
 
 group :test do
   gem 'castronaut', :git => 'https://github.com/nbudin/castronaut.git', :branch => 'dam5s-merge'
 end
+
+gem 'rubycas-client', git: 'git://github.com/dougc84/rubycas-client.git', branch: 'master'
+# gem 'rubycas-client', git: 'git://github.com/dougc84/rubycas-client.git', ref: 'dcf33f0'

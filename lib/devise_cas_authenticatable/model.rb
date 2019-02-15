@@ -33,9 +33,10 @@ module Devise
             conditions = { ::Devise.cas_username_column => identifier }
             resource = find_or_build_resource_from_conditions(conditions)
             return nil unless resource
-            
-            resource.cas_extra_attributes = ticket_response.extra_attributes \
-              if resource.respond_to?(:cas_extra_attributes=)
+
+            resource.cas_extra_attributes = ticket.response if ticket.respond_to?(:response)
+            # resource.cas_extra_attributes = ticket_response.extra_attributes \
+            #   if resource.respond_to?(:cas_extra_attributes=)
 
             resource.save
             resource

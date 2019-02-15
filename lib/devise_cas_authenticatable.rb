@@ -113,6 +113,10 @@ module Devise
     cas_action_url(base_url, mapping, "unregistered")
   end
 
+  def self.cas_validate_url(base_url, mapping)
+    cas_action_url(base_url, mapping, "serviceValidate")
+  end
+
   private
   def self.cas_action_url(base_url, mapping, action)
     cas_action_url_factory_class.new(base_url, mapping, action).call
